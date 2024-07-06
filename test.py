@@ -26,31 +26,34 @@ if st.button('Đặt hàng', use_container_width=True):
   if l == 'Nhỏ (30K)': l = 'Nhỏ'
   elif l == 'Vừa (40K': l = 'Vừa'
   elif l == 'Lớn (50K)': l = 'Lớn'
-  st.success(f'Cỡ: {l}')
 
   if l == 'Nhỏ': money = 30
   elif l == 'Vừa': money = 40
   else: money = 50
 
-  a = []
+  a0 = []
   if sua == True: 
-    a.append('Sữa') 
+    a0.append('Sữa') 
     money +=5 
   if caphe == True: 
-    a.append('Cà phê')
+    a0.append('Cà phê')
     money +=8
   if kem == True: 
-    a.append('Kem')
+    a0.append('Kem')
     money += 10
   if trung == True: 
-    a.append('Trứng')
+    a0.append('Trứng')
     money += 15
-  nstr = 'Thêm:'
-  for i in len(a):
-    if i == 0: nstr += a[i]
-    nstr = nstr + "," + a[i]
-  st.success(nstr)
-  st.success('Topping:', *d)
+
+  nstr = 'Thêm: '
+  for z in range(len(a0)):
+    if z == 0:nstr += a0[z]
+    else:nstr = nstr + ', ' + a0[z]
+
+  chuoi = 'Topping: '
+  for i in range(len(d)):
+    if i == 0:chuoi += d[i]
+    else: chuoi = chuoi + ', ' + d[i]
   for i in d:
     if i =='Trân châu trắng (5K)':money += 5
     if i =='Trân châu đen (5K)': money += 5
@@ -58,10 +61,13 @@ if st.button('Đặt hàng', use_container_width=True):
     if i =='Vải (7K)':money += 7
     if i =='Nhãn (8K)':money += 8
     if i =='Đào (10K)':money += 10
-
-  st.success(textarea)
-
   money = money * soluong
-  st.success(f'Số lượng: {soluong}')
 
-  st.success(f'Thành tiền: {money}K')
+  tong = f'''Cỡ: {l}
+\n{nstr}
+\n{chuoi}
+\n{textarea}
+\n Số lượng: {soluong}
+\n Thành tiền: {money}K
+'''
+  st.success(tong)
