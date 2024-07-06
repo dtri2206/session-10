@@ -6,7 +6,7 @@ a,b=st.columns(2)
 with a:
   st.image('https://i.imgur.com/lEpdPsT.jpeg')
 with b:
-  l=st.radio('Kích cỡ',('Nhỏ (30K)','Vừa (40K)','Lớn (50K)'))
+  l=st.radio('Kích cỡ',('Nhỏ (30K)','Vừa (40K)','Lớn (50K)'),horizontal = True)
   st.write('Thêm')
   b1,b2=st.columns(2)
   with b1:
