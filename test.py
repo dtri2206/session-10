@@ -24,11 +24,11 @@ textarea = st.text_area('Ghi chú')
 
 if st.button('Đặt hàng', use_container_width=True):
   if l == 'Nhỏ (30K)': l = 'Nhỏ'
-  elif l == 'Vừa (40K': l = 'Vừa'
-  elif l == 'Lớn (50K)': l = 'Lớn'
+  if l == 'Vừa (40K)': l = 'Vừa'
+  if l == 'Lớn (50K)': l = 'Lớn'
 
   if l == 'Nhỏ': money = 30
-  elif l == 'Vừa': money = 40
+  if l == 'Vừa': money = 40
   else: money = 50
 
   a0 = []
